@@ -4,15 +4,15 @@ Proje MVVM mimarisi, Room veritabanı ve Kotlin'in en güncel kütüphaneleri ku
 
 ## Kullanılan Teknolojiler & Kütüphaneler
 * Kotlin
-Jepack Compose
-MVVM
-Room Database
-Coroutines
-Coil
-Navigation
-Gson
-ViewModelFactory
-Material3 Design Components
+* Jepack Compose
+* MVVM
+* Room Database
+* Coroutines
+* Coil
+* Navigation
+* Gson
+* ViewModelFactory
+* Material3 Design Components
 
 ## Özellikler
 Kişi Yönetimi: Yeni kişi ekleme, mevcut kişileri düzenleme, görüntüleme ve silme
