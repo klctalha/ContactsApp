@@ -3,7 +3,7 @@ Bu proje kullanıcıların kişilerini yönetebileceği, Jetpack Compose ile gel
 Proje MVVM mimarisi, Room veritabanı ve Kotlin'in en güncel kütüphaneleri kullanılarak geliştirilmiştir.
 
 ## Kullanılan Teknolojiler & Kütüphaneler
-Kotlin
+* Kotlin
 Jepack Compose
 MVVM
 Room Database
