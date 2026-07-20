@@ -12,10 +12,13 @@ class ContactsScreenViewModel(private val repository : ContactRepository) : View
 
     var contactList = MutableLiveData<List<Contacts>>()
 
+    init{
+        getAllContacts()
+    }
     fun getAllContacts(){
         viewModelScope.launch(Dispatchers.IO){
             val liste = repository.getAllContacts()
-            contactList.value = liste
+            contactList.postValue(liste)
         }
     }
     fun deleteContacts(contact : Contacts){
@@ -27,7 +30,7 @@ class ContactsScreenViewModel(private val repository : ContactRepository) : View
     fun searchContact(searchWord : String){
         viewModelScope.launch(Dispatchers.IO) {
             val liste = repository.searchContact(searchWord)
-            contactList.value = liste
+            contactList.postValue(liste)
         }
     }
 

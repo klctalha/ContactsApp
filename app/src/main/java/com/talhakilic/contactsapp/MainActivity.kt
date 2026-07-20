@@ -10,21 +10,27 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.talhakilic.contactsapp.repository.ContactRepository
+import com.talhakilic.contactsapp.room.ContatcDataBase
 import com.talhakilic.contactsapp.ui.theme.ContactsAppTheme
+import com.talhakilic.contactsapp.view.PageTransitions
+import com.talhakilic.contactsapp.viewmodel.AddContactScreenViewModel
+import com.talhakilic.contactsapp.viewmodel.ContactsScreenViewModel
+import com.talhakilic.contactsapp.viewmodelfactory.ContactsScreenViewModelFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        val db = ContatcDataBase.databaseAccess(this)!!
+        val repo = ContactRepository(db.contactDao())
         setContent {
             ContactsAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+              PageTransitions(repo)
             }
         }
     }
@@ -42,6 +48,5 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     ContactsAppTheme {
-        Greeting("Android")
     }
 }
